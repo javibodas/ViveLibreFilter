@@ -15,17 +15,20 @@ public class App
 {
     public static void main( String[] args )
     {
+    	String filter = "Potter";
+    	
     	try {
     		Books books = FileJsonReader.importBooksFromJsonFile("resources\\", "books.json");
-    		books.printBooksWithNoPublicationDate();
+    		books.printNotHavingPublicationDate();
+    		System.out.println("\n\n\n");
     		
-    		Optional<BookDate> b = books.filterBy("Potter");
+    		Optional<BookDate> b = books.filterBy(filter);
     		if (b.isPresent()) {
-    			System.out.println(b.get().toString());
+    			System.out.println(b.get().toString() + "\n\n\n");
     		}
     		
     		Books sortedBooks = books.sortByPublicationDateAndBioLength();
-    		sortedBooks.printBooks();
+    		sortedBooks.print();
     		
     	} catch (IOException exception) {
     		System.out.println("There was an error reading the file: " + exception.getMessage());

@@ -26,7 +26,7 @@ public class Books {
 	}
 	
 	
-	public void printBooksWithNoPublicationDate()
+	public void printNotHavingPublicationDate()
 	{
 		list
 		.stream()
@@ -56,7 +56,7 @@ public class Books {
 		);
 	}
 	
-	public void printBooks()
+	public void print()
 	{
 		list
 			.forEach(book -> System.out.println(book.toString()));
